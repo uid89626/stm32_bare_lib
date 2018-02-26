@@ -24,7 +24,7 @@ limitations under the License.
 // Writes a string to the OpenOCD debug console. This can take hundreds of
 // milliseconds, so don't call this in performance-intensive code.
 static inline void DebugLog(char* s) {
-  asm("mov r0, #0x04\n" // SYS_WRITE0
+  __asm("mov r0, #0x04\n" // SYS_WRITE0
       "mov r1, %[str]\n"
       "bkpt #0xAB\n"
       :
